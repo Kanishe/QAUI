@@ -1,19 +1,18 @@
 import config.ServerConfig;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.*;
 import org.aeonbits.owner.ConfigFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
+import java.io.ByteArrayInputStream;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -23,19 +22,25 @@ public class YandexComp {
     private ServerConfig cfg = ConfigFactory.create(ServerConfig.class);
 
 
-    @Before
+    @BeforeEach
     public void setUp() {
         logger.info("Initialized driver");
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         logger.info("Started: " + driver);
     }
 
     @Test
+    @Epic("YandexMarket_Comparing_OS_XiaomiAndHuawei_01")
+    @Feature("Comparing_OS")
+    @Story("Comparing_OS_XiaomiAndHuawei")
+    @Description("Test OS Xiaomi VS Huawei")
+    @Step("Start Test - Open Yandex Market")
     public void openPage() throws InterruptedException {
         driver.get(cfg.url());
+        Allure.addAttachment("Open Yandex Market", new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
         logger.info("Open link: " + cfg.url());
         driver.findElement(By.xpath("//a[@href = '/catalog--elektronika/54440']")).click();
         logger.info("Open page 'Elecktronika'");
@@ -68,26 +73,31 @@ public class YandexComp {
 
     }
 
-
+    @Step("Wait More button")
     private static void showMoreWait() {
         new WebDriverWait(driver, 10).
                 until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@class = '_8v6CFFrbuZ' ]//button[contains(text(),'Показать ещё')]"))).click();
         logger.info("Button 'see else' available");
-    }
+        Allure.addAttachment("showMoreWait", new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
 
+    }
     private static void waitComparisonButton() {
         new WebDriverWait(driver, 10).
                 until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@href = '/my/compare-lists']"))).sendKeys(Keys.ENTER);
     }
 
+    @Step("Add Product To Comparison")
     private static void addProductToComparison() {
         if (driver.findElement(By.xpath("//div[@class='nMEoEKZaF-']")).isDisplayed()){
             logger.info("Product add to comparing");
         }
     }
+    @Step("CalculateOS")
     private static void calculateOSinOnComparisonPage(){
         List listOfOS = driver.findElements(By.xpath("//*[text() = 'Версия ОС на начало продаж']"));
         logger.info("Count of OS - " + listOfOS.size());
+        Allure.addAttachment("OSinOnComparisonPage", new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
+
     }
     private static void isTypeMobileEmpty(){
         List listOfTypeMobile = driver.findElements(By.xpath("//div[@class = '_3B3AAKx4qr']//div[text() = 'смартфон']"));
@@ -96,8 +106,7 @@ public class YandexComp {
         }else
             logger.info("Type Of Mobile NOT AvailAble");
     }
-
-    @After
+    @AfterEach
     public void setDown() {
         if (driver != null) {
             driver.quit();
