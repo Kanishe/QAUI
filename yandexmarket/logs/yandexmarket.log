@@ -1,0 +1,21 @@
+[21:21:00.897] | INFO  | main                             | YandexComp                       | Initialized driver
+[21:21:05.507] | INFO  | main                             | YandexComp                       | Started: ChromeDriver: chrome on MAC (1c450804fa79dca4091d6f2e3651e112)
+[21:21:09.662] | INFO  | main                             | YandexComp                       | Open link: https://market.yandex.ru/
+[21:21:11.456] | INFO  | main                             | YandexComp                       | Open page 'Elecktronika'
+[21:21:15.359] | INFO  | main                             | YandexComp                       | Open page 'Mobile'
+[21:21:15.783] | INFO  | main                             | YandexComp                       | Select HUAWEI
+[21:21:16.169] | INFO  | main                             | YandexComp                       | Select Xiaomi
+[21:21:18.394] | INFO  | main                             | YandexComp                       | Button 'see else' available
+[21:21:19.113] | INFO  | main                             | YandexComp                       | Wait button is clickable
+[21:21:19.341] | INFO  | main                             | YandexComp                       | Sorted HUAWEI and Xiaomi by price
+[21:21:21.111] | INFO  | main                             | YandexComp                       | Button 'see else' available
+[21:21:22.825] | INFO  | main                             | YandexComp                       | Product add to comparing
+[21:21:23.227] | INFO  | main                             | YandexComp                       | Product add to comparing
+[21:21:24.301] | INFO  | main                             | YandexComp                       | We open comparison page
+[21:21:24.377] | INFO  | main                             | YandexComp                       | In comparison page we have 2 product
+[21:21:24.487] | INFO  | main                             | YandexComp                       | Open all specifications
+[21:21:24.526] | INFO  | main                             | YandexComp                       | Count of OS - 1
+[21:21:25.240] | INFO  | main                             | YandexComp                       | Open diff specifications
+[21:21:35.292] | INFO  | main                             | YandexComp                       | Type Of Mobile NOT AvailAble
+[21:21:35.298] | INFO  | main                             | YandexComp                       | Сравнение товаров — Яндекс.Маркет
+[21:21:35.487] | INFO  | main                             | YandexComp                       | driver shutDown

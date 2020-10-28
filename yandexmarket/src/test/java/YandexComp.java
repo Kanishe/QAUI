@@ -21,7 +21,6 @@ public class YandexComp {
     protected static WebDriver driver;
     private ServerConfig cfg = ConfigFactory.create(ServerConfig.class);
 
-
     @BeforeEach
     public void setUp() {
         logger.info("Initialized driver");
@@ -97,7 +96,6 @@ public class YandexComp {
         List listOfOS = driver.findElements(By.xpath("//*[text() = 'Версия ОС на начало продаж']"));
         logger.info("Count of OS - " + listOfOS.size());
         Allure.addAttachment("OSinOnComparisonPage", new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
-
     }
     private static void isTypeMobileEmpty(){
         List listOfTypeMobile = driver.findElements(By.xpath("//div[@class = '_3B3AAKx4qr']//div[text() = 'смартфон']"));

@@ -10,6 +10,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>pageobject</artifactId>
+
+    <properties>
+        <maven.compiler.source>1.11</maven.compiler.source>
+        <maven.compiler.target>1.11</maven.compiler.target>
+        <webdrivermanager.version>3.8.1</webdrivermanager.version>
+        <selenium-java.version>3.141.59</selenium-java.version>
+    </properties>
+
+
     <dependencies>
     <dependency>
         <groupId>org.apache.logging.log4j</groupId>
@@ -28,6 +37,28 @@
         <artifactId>owner</artifactId>
         <version>1.0.12</version>
     </dependency>
+        <!-- https://mvnrepository.com/artifact/org.aeonbits.owner/owner -->
+
+        <!--    Seleni    -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium-java.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+        <!--    Seleni    -->
     </dependencies>
 
 
