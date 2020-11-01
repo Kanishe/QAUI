@@ -8,7 +8,7 @@ public class OtusLoginAction extends BaseHooks {
     @Test
     public void testBioPageObject(){
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.open();
+
     }
 
 

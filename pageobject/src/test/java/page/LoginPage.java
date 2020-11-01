@@ -2,6 +2,7 @@ package page;
 
 import config.ServerConfig;
 import org.aeonbits.owner.ConfigFactory;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,12 +21,18 @@ public class LoginPage extends AbstractPage {
     @FindBy(xpath = "//div[@class = 'new-input-placeholder' and contains (text(),'Введите пароль ')]")
     private WebElement passField;
 
-    public LoginPage loginPageEntry (String login,String pass ){
-        return null;
-    }
+
+    @FindBy(xpath = "//button[@data-modal-id='new-log-reg']")
+    private WebElement authButt;
+
+
 
     public LoginPage open(){
         driver.get(cfg.url());
+        return this;
+    }
+    public LoginPage loginPage (String login){
+        driver.findElement(By.xpath(String.valueOf(authButt))).click();
         return this;
     }
 }
