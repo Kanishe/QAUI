@@ -13,6 +13,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import page.LoginPage;
 
+import java.util.concurrent.TimeUnit;
+
 public class OtusLogin {
     protected static WebDriver driver;
     private static final Logger logger = LogManager.getLogger(OtusLogin.class);
@@ -25,6 +27,7 @@ public class OtusLogin {
         ChromeOptions op = new ChromeOptions();
         driver = new ChromeDriver(op);
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         logger.info("Driver is setup");
     }
 
@@ -32,6 +35,7 @@ public class OtusLogin {
     public void openPage(){
         driver.get(cfg.url());
         logger.info("Otus main page is open - " + driver.getCurrentUrl());
+
     }
 
     @AfterEach

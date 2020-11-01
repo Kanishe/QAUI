@@ -1,6 +1,5 @@
 package page;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 
 public abstract class AbstractPage {
