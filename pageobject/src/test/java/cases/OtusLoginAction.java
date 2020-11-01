@@ -1,18 +1,17 @@
 package cases;
 
-import config.ServerConfig;
-import org.apache.logging.log4j.LogManager;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
-import org.slf4j.Logger;
-import page.AbstractPage;
 import page.LoginPage;
-import utils.WebDriveType;
-import utils.WebDriverFactory;
+import utils.BaseHooks;
 
-public class OtusLoginAction {
+public class OtusLoginAction extends BaseHooks {
+    @Test
+    public void testBioPageObject(){
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.open();
+    }
+
+
 
 
 
