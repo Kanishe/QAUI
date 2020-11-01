@@ -14,9 +14,11 @@ public class LoginPage extends AbstractPage {
     @FindBy (xpath = "//div[@class = 'new-input-placeholder' and contains (text(),'Электронная почта ')]")
     private  WebElement loginField;
 
-
-
 //locator for password adminadmin (advise)//
     @FindBy(xpath = "//div[@class = 'new-input-placeholder' and contains (text(),'Введите пароль ')]")
     private WebElement passField;
+
+    public LoginPage loginPageEntry (String login,String pass ){
+        return null;
+    }
 }
