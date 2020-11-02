@@ -8,6 +8,6 @@ public class OtusLoginAction extends BaseHooks {
     @Test
     public void testBioPageObject(){
         MainPage mainPage = new MainPage();
-        mainPage.open().authOnMainPage();
+        mainPage.authOnMainPage();
     }
 }
