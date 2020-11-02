@@ -12,8 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseHooks {
     protected static WebDriver driver;
-    private static final Logger logger = LogManager.getLogger(BaseHooks.class);
-    //private static final Logger logger = LogManager.getLogger(YandexComp.class);
+    public static final Logger logger = LogManager.getLogger(BaseHooks.class);
 
     /**
      * Setup for our driver
