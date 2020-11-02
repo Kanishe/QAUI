@@ -13,6 +13,9 @@ import java.util.concurrent.TimeUnit;
 public class BaseHooks {
     protected static WebDriver driver;
     public static final Logger logger = LogManager.getLogger(BaseHooks.class);
+//    public String myLogin = System.getProperty("myEmail");
+//    public String myPass = System.getProperty("myPassword");
+
 
     /**
      * Setup for our driver

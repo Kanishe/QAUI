@@ -16,18 +16,19 @@ public class MainPage extends BaseHooks{
     @FindBy(xpath = "//button[@data-modal-id = 'new-log-reg']")
     private static WebElement authButton;
 
-    public MainPage(){
+    public MainPage open (){
         driver.get(cfg.url());
         logger.info("Open OTUS main page - " + cfg.url());
+        return this;
     }
 
-    public MainPage authOnMainPage(){
+    public AuthPage authOnMainPage(){
 /**
  * initialization page factory for use @FindBy
  * */
         PageFactory.initElements(driver, MainPage.class);
         authButton.click();
-        logger.info("Auth page OTUS is open" + authButton);
-        return this;
+        logger.info("Auth page OTUS is open" );
+        return new AuthPage();
     }
 }
