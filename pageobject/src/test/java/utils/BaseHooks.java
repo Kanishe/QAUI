@@ -11,9 +11,10 @@ import org.openqa.selenium.WebDriver;
 import java.util.concurrent.TimeUnit;
 
 public class BaseHooks {
+    protected static WebDriver driver;
     private static final Logger logger = LogManager.getLogger(BaseHooks.class);
     //private static final Logger logger = LogManager.getLogger(YandexComp.class);
-    protected static WebDriver driver;
+
     /**
      * Setup for our driver
     */
