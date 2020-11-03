@@ -19,7 +19,7 @@ public class AuthPage extends BaseHooks {
         maill.sendKeys(Email);
         password.sendKeys(Password);
         password.sendKeys(Keys.ENTER);
-        logger.info("Enter");
+        logger.info("Enter in account");
         return new AuthPage();
     }
     public BiographyPage entry (){

@@ -7,6 +7,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+import page.MainPage;
 
 import java.util.concurrent.TimeUnit;
 
@@ -24,6 +26,7 @@ public class BaseHooks {
     @BeforeAll
     public static void setDriver (){
         driver = WebDriverFactory.createDriver(WebDriveType.CHROME);
+
         if (driver != null){
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             driver.manage().window().maximize();
