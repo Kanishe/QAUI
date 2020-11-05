@@ -11,6 +11,7 @@
     <modules>
         <module>yandexmarket</module>
         <module>pageobject</module>
+        <module>restassured</module>
     </modules>
 
 
