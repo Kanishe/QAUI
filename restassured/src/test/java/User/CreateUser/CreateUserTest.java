@@ -36,6 +36,5 @@ public class CreateUserTest extends UserBase {
                 lastName,password,phone,
                 userName,userId,userStatus);
         response = userService.addUserRequest(user,"/dhsjfsdjh");
-
     }
 }
