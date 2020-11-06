@@ -1,5 +1,8 @@
 package User.CreateUser;
 
+import base.UserBase;
+import builder.UserBuilder;
+import com.sun.tools.xjc.reader.xmlschema.bindinfo.BIConversion;
 import dto.User;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
@@ -7,30 +10,15 @@ import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.Matchers.*;
 
-public class CreateUserTest {
+
+public class CreateUserTest extends UserBase {
+    Response response;
+    UserBuilder userBuilder=new UserBuilder();
+    User user;
     @Test
     public void checkCreateUser() {
-        Response response;
-        User user;
-        String expectedEmail = "Test@mail.ru";
-        String actualType;
-        String type = "unknown";
-        String errorMessageType = "Incorrect userName";
-        String expectedType = "unknown";
-        Long id = 101L;
-
-        user = User.builder()
-                .email(expectedEmail)
-                .firstName("FirstName")
-                .id(id)
-                .lastName("LastName")
-                .password("Password")
-                .phone("8-920-920-23-23")
-                .username("Ivan")
-                .userStatus(10L)
-                .build();
-
-        response = userService.addUserRequest(user);
+        user = userBuilder.create(expectedEmail,firstName,lastName,password,phone,userName,userId,userStatus);
+        response = userService.addUserRequest(user,"/user");
 
         response
                 .then()
@@ -38,6 +26,6 @@ public class CreateUserTest {
                 .statusCode(HttpStatus.SC_OK)
                 .time(lessThan(3000L))
                 .body("type", equalTo(expectedType))
-                .body("message", comparesEqualTo(toString()));//.toString()));
+                .body("message", comparesEqualTo(userId.toString()));
     }
 }

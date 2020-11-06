@@ -20,13 +20,13 @@ public class UserService {
                 .baseUri(BASE_URL);
     }
 
-    public Response addUserRequest(User user) {
+    public Response addUserRequest(User user, String basePath) {
         return given()
                 .spec(specification)
                 .with()
                 .body(user)
                 .when()
                 .log().all()
-                .post(CREATE_USER);
+                .post(basePath);
     }
 }

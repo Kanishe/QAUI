@@ -20,6 +20,4 @@ public class User {
     private String phone;
     private Long userStatus;
     private String username;
-
-
 }
