@@ -8,7 +8,7 @@ public class UserBase {
     protected String firstName = "FirstName";
     protected String lastName = "LastName";
     protected String password = "Password";
-    protected String phone = "8-920-920-23-23";
+    protected String phone = "8-999-999-99-99";
     protected Long userId= (long) (Math.random()+1);
     protected Long userStatus = 10L;
     protected String notFoundMessageType = "User not found";

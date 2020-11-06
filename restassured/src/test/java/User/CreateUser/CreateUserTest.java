@@ -17,7 +17,9 @@ public class CreateUserTest extends UserBase {
     User user;
     @Test
     public void checkCreateUser() {
-        user = userBuilder.create(expectedEmail,firstName,lastName,password,phone,userName,userId,userStatus);
+        user = userBuilder.create(expectedEmail,firstName,
+                lastName,password,phone,
+                userName,userId,userStatus);
         response = userService.addUserRequest(user,"/user");
 
         response
@@ -27,5 +29,13 @@ public class CreateUserTest extends UserBase {
                 .time(lessThan(3000L))
                 .body("type", equalTo(expectedType))
                 .body("message", comparesEqualTo(userId.toString()));
+    }
+    @Test
+    public void checkCreateUserWithWrongPath() {
+        user = userBuilder.create (expectedEmail,firstName,
+                lastName,password,phone,
+                userName,userId,userStatus);
+        response = userService.addUserRequest(user,"/dhsjfsdjh");
+
     }
 }
