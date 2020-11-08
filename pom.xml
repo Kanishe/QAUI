@@ -12,6 +12,7 @@
         <module>yandexmarket</module>
         <module>pageobject</module>
         <module>restassured</module>
+        <module>selenoid</module>
     </modules>
     <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
