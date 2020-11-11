@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
@@ -20,6 +21,11 @@ public class SelenoidTest {
                     new URL("http://0.0.0.0:4444/wd/hub"),desiredCapabilities
             );
 
-
+    }
+    @AfterEach
+    public void setDown() {
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }
