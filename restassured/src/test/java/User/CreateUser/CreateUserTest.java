@@ -15,6 +15,7 @@ public class CreateUserTest extends UserBase {
     Response response;
     UserBuilder userBuilder=new UserBuilder();
     User user;
+
     @Test
     public void checkCreateUser() {
         user = userBuilder.create(expectedEmail,firstName,
