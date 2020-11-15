@@ -7,8 +7,7 @@ pipeline {
         string(
                 name: 'branch_name',
                 defaultValue: 'master',
-                description: 'Choose your branch',
-                massage: 'Build success. Broadcast to channel for better visibility.'
+                description: 'Choose your branch'
         )
     }
     stages {
@@ -19,15 +18,13 @@ pipeline {
         }
         stage("Run Maven package") {
             steps {
-                sh '/usr/local/bin/mvn package'
+                sh '/usr/local/bin/mvn clean'
+            }
+            steps{
+                sh '/usr/local/bin/mvn test'
             }
             post {
                 always {
-                    emailext (body: "${message}",
-                        recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
-                        subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
-                        to: 'a.kan4988@gmail.com')
-                    
                     slackSend(
                             channel: 'build',
                             replyBroadcast: true,
