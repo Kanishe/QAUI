@@ -26,15 +26,19 @@ pipeline {
                 sh '/usr/local/bin/mvn test'
             }
         }
+        stage('Backup and Reports') {
+            steps {
+                archiveArtifacts artifacts: '**/target/', fingerprint: true 
+            }
 
-//                post {
-//                    always {
-//                        slackSend(
-//                                channel: 'build',
-//                                replyBroadcast: true,
-//                                message: "Build failed. Broadcast to channel for better visibility."
-//                        )
-//                    }
-//                }
+               post {
+                   always {
+                        slackSend(
+                                channel: 'build',
+                                replyBroadcast: true,
+                                message: "Build success. Broadcast to channel for better visibility."
+                        )
+                    }
+                }
     }
 }
