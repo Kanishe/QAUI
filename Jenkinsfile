@@ -15,16 +15,28 @@ pipeline {
             steps {
                 git 'https://github.com/Kanishe/QAUI.git'
             }
-            post {
-                always {
-                    slackSend(
-                            channel: 'build',
-                            replyBroadcast: true,
-                            message: "Build failed. Broadcast to channel for better visibility."
-                    )
+            stage('Run maven clean') {
+                steps {
+                    sh '/usr/local/bin/mvn clean'
                 }
             }
-        }
-    }
+            stage('Run maven test') {
+                steps {
+                    sh '/usr/local/bin/mvn test'
+                }
+            }
 
+//                post {
+//                    always {
+//                        slackSend(
+//                                channel: 'build',
+//                                replyBroadcast: true,
+//                                message: "Build failed. Broadcast to channel for better visibility."
+//                        )
+//                    }
+//                }
+            }
+        }
+
+    }
 }
