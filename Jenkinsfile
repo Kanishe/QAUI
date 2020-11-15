@@ -20,10 +20,6 @@ pipeline {
             steps {
                 sh '/usr/local/bin/mvn clean'
             }
-            stage("Run Maven test") {
-                steps {
-                    sh '/usr/local/bin/mvn test'
-                }
                 post {
                     always {
                         slackSend(
