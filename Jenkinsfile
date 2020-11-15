@@ -20,20 +20,21 @@ pipeline {
             steps {
                 sh '/usr/local/bin/mvn clean'
             }
-        stage ("Run Maven test"){
-            steps{
-                sh '/usr/local/bin/mvn test'
-            }
-            post {
-                always {
-                    slackSend(
-                            channel: 'build',
-                            replyBroadcast: true,
-                            message: "Build success. Broadcast to channel for better visibility."
-                    )
+            stage("Run Maven test") {
+                steps {
+                    sh '/usr/local/bin/mvn test'
+                }
+                post {
+                    always {
+                        slackSend(
+                                channel: 'build',
+                                replyBroadcast: true,
+                                message: "Build success. Broadcast to channel for better visibility."
+                        )
+                    }
                 }
             }
         }
-    }
 
+    }
 }
