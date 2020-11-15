@@ -16,16 +16,16 @@ pipeline {
                 git 'https://github.com/Kanishe/QAUI.git'
             }
         }
-            stage('Run maven clean') {
-                steps {
-                    sh '/usr/local/bin/mvn clean'
-                }
+        stage('Run maven clean') {
+            steps {
+                sh '/usr/local/bin/mvn clean'
             }
-            stage('Run maven test') {
-                steps {
-                    sh '/usr/local/bin/mvn test'
-                }
+        }
+        stage('Run maven test') {
+            steps {
+                sh '/usr/local/bin/mvn test'
             }
+        }
 
 //                post {
 //                    always {
@@ -36,7 +36,5 @@ pipeline {
 //                        )
 //                    }
 //                }
-            }
-        }
-
+    }
 }
