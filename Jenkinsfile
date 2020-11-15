@@ -7,7 +7,8 @@ pipeline {
         string(
                 name: 'branch_name',
                 defaultValue: 'master',
-                description: 'Choose your branch'
+                description: 'Choose your branch',
+                massage: 'Build success. Broadcast to channel for better visibility.'
         )
     }
     stages {
