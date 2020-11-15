@@ -15,6 +15,7 @@ pipeline {
             steps {
                 git 'https://github.com/Kanishe/QAUI.git'
             }
+        }
             stage('Run maven clean') {
                 steps {
                     sh '/usr/local/bin/mvn clean'
