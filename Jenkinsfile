@@ -25,7 +25,7 @@ pipeline {
                     slackSend(
                             channel: 'build',
                             replyBroadcast: true,
-                            message: "Build failed. Broadcast to channel for better visibility."
+                            message: "Build success. Broadcast to channel for better visibility."
                     )
                 }
             }
