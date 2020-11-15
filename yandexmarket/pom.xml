@@ -90,7 +90,7 @@
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
                     <includes>
-                        <include>**/*Test.java</include>
+                        <include>**/*YandexComp.java</include>
                     </includes>
                     <systemPropertyVariables>
                         <application.properties>/application.properties</application.properties>
