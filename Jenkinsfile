@@ -22,6 +22,11 @@ pipeline {
             }
             post {
                 always {
+                    emailext (body: "${message}",
+                        recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
+                        subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+                        to: 'a.kan4988@gmail.com')
+                    
                     slackSend(
                             channel: 'build',
                             replyBroadcast: true,
