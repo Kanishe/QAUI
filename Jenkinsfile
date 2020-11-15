@@ -1,5 +1,5 @@
 pipeline {
-agent { label 'docker' }
+agent any
 parameters{
         string(
                 name:'branch_name',
