@@ -20,6 +20,7 @@ pipeline {
             steps {
                 sh '/usr/local/bin/mvn package'
             }
+        }
             post {
                 always {
                     slackSend(
