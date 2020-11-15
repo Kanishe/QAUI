@@ -15,12 +15,6 @@ pipeline {
             steps {
                 git 'https://github.com/Kanishe/QAUI.git'
             }
-        }
-        stage("Run Maven package") {
-            steps {
-                sh '/usr/local/bin/mvn package'
-            }
-        }
             post {
                 always {
                     slackSend(
