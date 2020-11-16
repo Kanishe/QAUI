@@ -169,6 +169,4 @@ Temporary Items
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,intellij+iml,intellij+all
 
-
-/pageobject/logs/otus.log
-/pageobject/logs/otus-10-29-20.log
+logs
